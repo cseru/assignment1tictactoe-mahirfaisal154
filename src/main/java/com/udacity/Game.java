@@ -151,6 +151,67 @@ public class Game {
     public String checkGameWinner(char [][]grid){
         String result = "None";
         //Student code goes here ...
+        int TotalTurn=0;
+        boolean xWin=false;
+        boolean yWin=false;
+     for(int i=0;i<3;i++)
+     {
+         int numXVerticle=0;
+         int numOVerticle=0;
+         int numXHorizontal=0;
+         int numOHorizontal=0;
+for(int j=0;j<3;j++)
+{
+
+    if(grid[i][j]=='x' || grid[i][j]=='o')
+    TotalTurn=TotalTurn+1;
+    if(grid[i][j]=='x')numXVerticle=numXVerticle+1;
+    else if(grid[i][j]=='o')numOVerticle=numOVerticle+1;
+    if(grid[j][i]=='x')=numXHorizontal+1;
+    else if(grid[j][i]=='o')numOHorizontal=numOHorizontal+1;
+}
+if(numXHorizontal==3 ||numXVerticle==3)
+{
+    result = 'X wins';
+    return result;
+}
+         if(numYHorizontal==3 ||numYVerticle==3)
+         {
+             result = 'Y wins';
+             return result;
+         }
+    if( grid[2][2]=='x'  &&  grid[1][1]==grid[2][2]  && grid[0][0] ==grid[1][1]  )
+     result='X wins';
+    else  if(grid[1][1]=='x' &&  grid[1][1]==grid[2][0]  &&  grid[0][2] ==grid[1][1]  )
+        result='X wins';
+
+    else  if( grid[2][2]=='o'  &&  grid[1][1]==grid[2][2]  && grid[0][0] ==grid[1][1]  )
+        result='O wins';
+
+    else  if(grid[1][1]=='o' &&  grid[1][1]==grid[2][0]  &&  grid[0][2] ==grid[1][1]  )
+        result='X wins';
+
+         if(TotalTurn==9)
+    result='tie';
+return  result;
+
+
+
+
+
+
+
+     }
+
+
+
+
+
+
+
+
+        //student code ends here
+
         return result;
     }
 
